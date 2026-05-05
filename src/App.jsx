@@ -1,9 +1,8 @@
 import './App.css'
-
 import Navbar from "../src/components/Navbar";
 import Home from "../src/components/Home"
 import { Routes, Route } from 'react-router-dom';
-import Signin from './pages/signin';
+import Signin from './pages/Signin';
 import ResetPassword from './pages/ResetPassword';
 import ForgotPassword from './pages/ForgotPassword';
 import ResetOtp from './pages/ResetOtp';
@@ -21,10 +20,6 @@ function App(){
       <Route path='/resetOtp' element={<ResetOtp/>}/>
 
     </Routes>
-   
-    
-    
-    
     </>
   )
 }
