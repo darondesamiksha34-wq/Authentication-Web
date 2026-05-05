@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Logo from "../assets/Logo.png";
@@ -99,36 +98,4 @@ export default Navbar;
 
 
 
-
-
-
-
-
-// import { useState } from "react";
-// import axios from "axios";
-// import Logo from "../assets/Logo.png";
-// import { useNavigate } from "react-router-dom";
-
-// function Navbar() {
-//   const navigate = useNavigate();
-
-//   return (
-//     <div className="fixed top-0 left-0 w-full bg-white px-4 sm:px-6 py-3 flex items-center justify-between shadow-md z-50">
-//        <div className="flex items-center gap-2">
-//         <img src={Logo} className="w-8 sm:w-10 h-auto" />
-//         <h1 className="text-xl sm:text-2xl font-bold">Auth</h1>
-//       </div>
-
-      
-//       <button
-//         onClick={() => navigate("/signin")}
-//         className="border px-4 py-1 sm:px-5 sm:py-2 rounded-full text-sm sm:text-base hover:text-blue-600 transition"
-//       >
-//         Login →
-//       </button>
-//     </div>
-//   );
-// }
-
-// export default Navbar;
 

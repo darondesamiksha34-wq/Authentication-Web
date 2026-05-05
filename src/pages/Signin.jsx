@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Signup from "../assets/signin2.jpg";
 
-
 function Signin() {
   const navigate = useNavigate();
 
@@ -23,40 +22,6 @@ function Signin() {
     }, 3000);
   };
 
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-
-  //   if (!name || !email || !password) {
-  //     showMessage("All fields are required", "error");
-  //     return;
-  //   }
-
-  //   try {
-  //     const res = await axios.post(
-  //       "http://localhost:5000/api/auth/register",
-  //       { name, email, password },
-  //       { withCredentials: true }
-  //     );
-
-  //     console.log("Success:", res.data);
-
-  //     showMessage("Account created successfully", "success");
-
-  //     setName("");
-  //     setEmail("");
-  //     setPassword("");
-
-  //   } catch (err) {
-  //     console.error("Error:", err);
-
-  //     showMessage(
-  //       err.response?.data?.message || "Signup failed",
-  //       "error"
-  //     );
-  //   }
-  // };
-
-
   const handleSubmit = async (e) => {
   e.preventDefault();
 
@@ -75,7 +40,7 @@ function Signin() {
     console.log("REGISTER RESPONSE:", res.data);
 
     if (res.data.success) {
-      // ✅ SAVE USER
+   
       localStorage.setItem("user", JSON.stringify(res.data.user));
 
       showMessage("Account created successfully", "success");
@@ -199,6 +164,46 @@ export default Signin;
 
 
 
+
+
+
+
+
+
+
+
+// const handleSubmit = async (e) => {
+  //   e.preventDefault();
+
+  //   if (!name || !email || !password) {
+  //     showMessage("All fields are required", "error");
+  //     return;
+  //   }
+
+  //   try {
+  //     const res = await axios.post(
+  //       "http://localhost:5000/api/auth/register",
+  //       { name, email, password },
+  //       { withCredentials: true }
+  //     );
+
+  //     console.log("Success:", res.data);
+
+  //     showMessage("Account created successfully", "success");
+
+  //     setName("");
+  //     setEmail("");
+  //     setPassword("");
+
+  //   } catch (err) {
+  //     console.error("Error:", err);
+
+  //     showMessage(
+  //       err.response?.data?.message || "Signup failed",
+  //       "error"
+  //     );
+  //   }
+  // };
 
 
 

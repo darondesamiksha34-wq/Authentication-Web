@@ -20,8 +20,6 @@ function App(){
       <Route path='/resetpassword' element={  <ResetPassword /> }/>
       <Route path='/resetOtp' element={<ResetOtp/>}/>
 
-      
-      
     </Routes>
    
     
