@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
 import Logo from "../assets/Logo.png";
 import { useNavigate } from "react-router-dom";
+import instance from "../services/axiosConfig"; // adjust path
 
 function Navbar() {
   const navigate = useNavigate();
@@ -24,22 +24,19 @@ function Navbar() {
   };
 
 
-  const handleLogout = async () => {
-    try {
-      await axios.post(
-        "http://localhost:5000/api/auth/logout",
-        {},
-        { withCredentials: true }
-      );
 
-      localStorage.removeItem("user");
-      setUser(null);
-      navigate("/");
 
-    } catch (err) {
-      console.log("Logout error:", err);
-    }
-  };
+const handleLogout = async () => {
+  try {
+    await instance.post("/api/auth/logout");
+
+    localStorage.removeItem("user");
+    setUser(null);
+    navigate("/");
+  } catch (err) {
+    console.log("Logout error:", err);
+  }
+};
 
   return (
     <div className="fixed top-0 left-0 w-full bg-white px-4 sm:px-6 py-3 flex items-center justify-between shadow-md z-50">

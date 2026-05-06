@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
 import Signup from "../assets/signin2.jpg";
+import instance from "../services/axiosConfig"; 
 
 function Signin() {
   const navigate = useNavigate();
@@ -31,11 +31,13 @@ function Signin() {
   }
 
   try {
-    const res = await axios.post(
-      "http://localhost:5000/api/auth/register",
-      { name, email, password },
-      { withCredentials: true }
-    );
+
+
+const res = await instance.post("/api/auth/register", {
+  name,
+  email,
+  password,
+});
 
     console.log("REGISTER RESPONSE:", res.data);
 
