@@ -3,7 +3,7 @@ import instance from "./axiosConfig";
 //Signup user
 export const registerUser = async (data) => {
   try {
-    const response = await instance.post("/api/auth/signup", data);
+    const response = await instance.post("/api/auth/register", data);
     return response.data;
   } catch (error) {
     console.error("Signup Error:", error.response?.data || error.message);
@@ -25,7 +25,7 @@ export const loginUser = async (data) => {
 // Logout user
 export const logoutUser = async () => {
   try {
-    const response = await instance.post("/logout");
+    const response = await instance.post("/api/auth/logout");
     return response.data;
   } catch (error) {
     console.error("Logout Error:", error.response?.data || error.message);

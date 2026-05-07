@@ -33,7 +33,7 @@ function Signin() {
   try {
 
 
-const res = await instance.post("/api/auth/login", {
+const res = await instance.post("/api/auth/register", {
   name,
   email,
   password,

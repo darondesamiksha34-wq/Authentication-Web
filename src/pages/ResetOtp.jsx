@@ -43,7 +43,7 @@ function ResetOtp() {
 
     try {
       const res = await instance.post(
-        "/api/auth/is-auth",   
+        "/api/auth/verify-account",   
         { otp: finalOtp }
       );
 
