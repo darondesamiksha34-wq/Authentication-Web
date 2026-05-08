@@ -11,35 +11,73 @@ function ForgotPassword() {
 
   const navigate = useNavigate();
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+//   const handleSubmit = async (e) => {
+//     e.preventDefault();
 
-    if (!email.trim()) {
-      setError("Email is required");
-      return;
-    }
+//     if (!email.trim()) {
+//       setError("Email is required");
+//       return;
+//     }
 
-    if (!email.includes("@")) {
-      setError("Enter a valid email");
-      return;
-    }
+//     if (!email.includes("@")) {
+//       setError("Enter a valid email");
+//       return;
+//     }
 
-    try {
-      await instance.post("/api/auth/send-reset-otp", {
-  email,
-});
+//     try {
+//       await instance.post("/api/auth/send-reset-otp", {
+//   email,
+// });
 
-      setSuccess("OTP sent successfully ");
+//       setSuccess("OTP sent successfully ");
+
+//       setTimeout(() => {
+//         navigate("/resetOtp", { state: { email } });
+//       }, 1500);
+
+//     } catch (err) {
+//       setError(err.response?.data?.message || "Failed to send OTP");
+//       setTimeout(() => setError(""), 3000);
+//     }
+//   };
+
+
+const handleSubmit = async (e) => {
+  e.preventDefault();
+
+  if (!email.trim()) {
+    setError("Email is required");
+    return;
+  }
+
+  try {
+    const res = await instance.post(
+      "/api/auth/send-reset-otp",
+      { email }
+    );
+
+    if (res.data.success) {
+      setSuccess(res.data.message);
 
       setTimeout(() => {
-        navigate("/resetOtp", { state: { email } });
+        navigate("/resetOtp", {
+          state: { email },
+        });
       }, 1500);
 
-    } catch (err) {
-      setError(err.response?.data?.message || "Failed to send OTP");
-      setTimeout(() => setError(""), 3000);
+    } else {
+      setError(res.data.message);
     }
-  };
+
+  } catch (err) {
+    console.log(err);
+
+    setError(
+      err.response?.data?.message ||
+      "Failed to send OTP"
+    );
+  }
+};
 
   return (
     <div
