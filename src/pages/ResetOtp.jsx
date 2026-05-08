@@ -43,9 +43,10 @@ function ResetOtp() {
 
     try {
       const res = await instance.post(
-  "/api/auth/verify-account",   
-  { otp: finalOtp }
-);
+        "/api/auth/verify-account",   
+        { otp: finalOtp }
+      );
+
       setSuccess(res.data.message || "OTP Verified");
 
       setTimeout(() => {
