@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { MdOutlineEmail } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+// import axios from "axios";
+import instance from "../services/axiosConfig";
 import BG from "../assets/bg4.jpg";
 
 function ForgotPassword() {
@@ -25,9 +26,9 @@ function ForgotPassword() {
     }
 
     try {
-      await axios.post("/api/auth/send-reset-otp", {
-        email,
-      });
+      await instance.post("/api/auth/send-reset-otp", {
+  email,
+});
 
       setSuccess("OTP sent successfully ");
 
