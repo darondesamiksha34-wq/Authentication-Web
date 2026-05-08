@@ -9,14 +9,25 @@ function Navbar() {
   const [user, setUser] = useState(null);
 
   
-  useEffect(() => {
-    try {
-      const storedUser = JSON.parse(localStorage.getItem("user"));
-      setUser(storedUser);
-    } catch {
-      setUser(null);
+  // useEffect(() => {
+  //   try {
+  //     const storedUser = JSON.parse(localStorage.getItem("user"));
+  //     setUser(storedUser);
+  //   } catch {
+  //     setUser(null);
+  //   }
+  // }, []);
+
+useEffect(() => {
+  try {
+    const storedUser = localStorage.getItem("user");
+    if (storedUser) {
+      setUser(JSON.parse(storedUser));
     }
-  }, []);
+  } catch (err) {
+    setUser(null);
+  }
+}, []);
 
   const getInitial = () => {
     if (!user || !user.email) return "";
