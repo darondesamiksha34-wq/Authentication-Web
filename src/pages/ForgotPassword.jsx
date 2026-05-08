@@ -25,7 +25,7 @@ function ForgotPassword() {
     }
 
     try {
-      await axios.post("VITE_API_URL:5000/api/auth/send-reset-otp", {
+      await axios.post("/api/auth/send-reset-otp", {
         email,
       });
 
