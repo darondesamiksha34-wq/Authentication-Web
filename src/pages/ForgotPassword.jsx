@@ -11,37 +11,6 @@ function ForgotPassword() {
 
   const navigate = useNavigate();
 
-//   const handleSubmit = async (e) => {
-//     e.preventDefault();
-
-//     if (!email.trim()) {
-//       setError("Email is required");
-//       return;
-//     }
-
-//     if (!email.includes("@")) {
-//       setError("Enter a valid email");
-//       return;
-//     }
-
-//     try {
-//       await instance.post("/api/auth/send-reset-otp", {
-//   email,
-// });
-
-//       setSuccess("OTP sent successfully ");
-
-//       setTimeout(() => {
-//         navigate("/resetOtp", { state: { email } });
-//       }, 1500);
-
-//     } catch (err) {
-//       setError(err.response?.data?.message || "Failed to send OTP");
-//       setTimeout(() => setError(""), 3000);
-//     }
-//   };
-
-
 const handleSubmit = async (e) => {
   e.preventDefault();
 
