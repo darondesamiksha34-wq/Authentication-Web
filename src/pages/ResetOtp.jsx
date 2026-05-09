@@ -42,18 +42,25 @@ function ResetOtp() {
     }
 
     try {
-      const res = await instance.post(
-        "/api/auth/verify-account",   
-        { otp: finalOtp }
-      );
+      // const res = await instance.post(
+      //   "/api/auth/verify-account",   
+      //   { otp: finalOtp }
+      // );
 
-      setSuccess(res.data.message || "OTP Verified");
+      // setSuccess(res.data.message || "OTP Verified");
 
-      setTimeout(() => {
-        navigate("/resetpassword", {
-          state: { email, otp: finalOtp },
-        });
-      }, 1000);
+      // setTimeout(() => {
+      //   navigate("/resetpassword", {
+      //     state: { email, otp: finalOtp },
+      //   });
+      // }, 1000);
+      setSuccess("OTP Verified");
+
+setTimeout(() => {
+  navigate("/resetpassword", {
+    state: { email, otp: finalOtp },
+  });
+}, 1000);
 
     } catch (err) {
       setError(err.response?.data?.message || "Invalid OTP");
